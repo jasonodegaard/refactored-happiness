@@ -1,9 +1,2 @@
 # refactored-happiness
-
-Hello World
-
-#here is a comment
-
-#Eric I am your brother.
-
-# line breaks
+This respository is for proof-of-concept use of CI/CD with Salesforce.
