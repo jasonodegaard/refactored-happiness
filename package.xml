@@ -4,6 +4,7 @@
     <types>
         <members>Account.Previous_Shipment_Date__c</members>
         <members>Account.Next_Shipment_Date__c</members>
+        <members>Account.Jason_Shipment_Date__c</members>
         <name>CustomField</name>
     </types>
     <version>47.0</version>
