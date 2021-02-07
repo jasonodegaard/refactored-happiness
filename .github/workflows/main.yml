@@ -1,0 +1,29 @@
+name: 'sfdx'
+
+on: [push]
+
+jobs:
+  job_id:
+    build:
+      runs-on: ubuntu-latest
+      
+      steps:
+        - uses: actions/checkout@v2
+        - name: Write the token into a file
+          run: 'echo ${{secrets.DEVHUB_TOKEN}} > token.txt'
+        - name: Install Salesforce command line interface
+          run: |
+            wget https://developer.salesforce.com/media/salesforce-cli/sfdx-linux-amd64.tar.xz
+            mkdir sfdx-cli
+            tar xJf sfdx-linux-amd64.tar.gz -C sfdx-cli --strip-components 1
+            ./sfdx-cli/install
+            
+          -name: Validate the build into main org
+           run: sfdx force:auth:jwt:grant --clientid $SF_CONSUMER_KEY --jwtkeyfile "$SERVER_KEY_CREDENTIALS_ID" --username $SF_USERNAME --instanceurl https://login.salesforce.com
+
+          
+          
+          
+not finished yet          
+          
+          
