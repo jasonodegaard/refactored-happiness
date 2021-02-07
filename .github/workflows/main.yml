@@ -4,11 +4,14 @@ on: [push]
 
 jobs:
     build:
-      
       runs-on: ubuntu-latest
-      
       steps:
         - uses: actions/checkout@v2
+        - name: Echo a value
+          id: echo_steppy
+          continue-on-error: true
+          run: echo "Jason Odegaard test"
+          
         - name: Write the token into a file
           env: 
             SUPER_SECRET: ${{ secrets.SERVER_KEY_CREDENTIALS_ID }}
