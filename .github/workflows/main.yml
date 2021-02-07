@@ -21,7 +21,10 @@ jobs:
           run: 'echo $SUPER_SECRET > secret.txt'
           env: 
             SUPER_SECRET: ${{ secrets.SERVER_KEY_CREDENTIALS_ID }}
-        
+
+        - name: list files
+          run: 'ls -la'
+
         - name: Install Salesforce command line interface
           run: |
             wget https://developer.salesforce.com/media/salesforce-cli/sfdx-linux-amd64.tar.xz
@@ -32,7 +35,7 @@ jobs:
         - name: Authenticate token with main org
           env: 
             SUPER_SECRET: ${{ secrets.SERVER_KEY_CREDENTIALS_ID }}
-          run: sfdx auth:jwt:grant --clientid "3MVG9uudbyLbNPZOmSIknJGkXU3jB2EpUsRCx1AlAk6OkVgfSg8VG.asx_QWveV6iujTirl15DpvWT2gAOdvK" --jwtkeyfile secret.txt --username "jason.odegaard@gmail.com" --instanceurl "https://login.salesforce.com"
+          run: sfdx auth:jwt:grant --clientid "3MVG9uudbyLbNPZOmSIknJGkXU3jB2EpUsRCx1AlAk6OkVgfSg8VG.asx_QWveV6iujTirl15DpvWT2gAOdvK" --jwtkeyfile "secret.txt" --username "jason.odegaard@gmail.com" --instanceurl "https://login.salesforce.com"
 
         - name: List orgs
           run: sfdx force:org:list
