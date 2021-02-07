@@ -22,8 +22,10 @@ jobs:
           env: 
             SUPER_SECRET: ${{ secrets.SERVER_KEY_CREDENTIALS_ID }}
 
-        - name: list files
-          run: 'ls -la'
+        - name: list files and run hash
+          run: | 
+            'ls -la'
+            md5sum secret.txt
 
         - name: Install Salesforce command line interface
           run: |
