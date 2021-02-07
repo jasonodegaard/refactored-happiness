@@ -24,7 +24,7 @@ jobs:
 
         - name: list files and run hash
           run: | 
-            'ls -la'
+            ls -la
             md5sum secret.txt
 
         - name: Install Salesforce command line interface
