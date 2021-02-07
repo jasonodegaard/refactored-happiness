@@ -3,8 +3,8 @@ name: 'sfdx'
 on: [push]
 
 jobs:
-  job_id:
     build:
+      
       runs-on: ubuntu-latest
       
       steps:
