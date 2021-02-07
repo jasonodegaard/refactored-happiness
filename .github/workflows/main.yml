@@ -1,4 +1,4 @@
-name: 'sfdx'
+name: sfdx
 
 on: [push]
 
