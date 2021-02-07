@@ -17,23 +17,25 @@ jobs:
           continue-on-error: true
           run: echo "Jason Odegaard test"
           
-        - name: Write the token into a file
+#        - name: Write the token into a file
+#          env: 
+#            SUPER_SECRET: ${{ secrets.SERVER_KEY_CREDENTIALS_ID }}
+        
+        - name: Install Salesforce command line interface
+          run: |
+            wget https://developer.salesforce.com/media/salesforce-cli/sfdx-linux-amd64.tar.xz
+            mkdir sfdx-cli
+            tar xJf sfdx-linux-amd64.tar.gz -C sfdx-cli --strip-components 1
+            ./sfdx-cli/install
+          
+        - name: Authenticate token with main org
           env: 
             SUPER_SECRET: ${{ secrets.SERVER_KEY_CREDENTIALS_ID }}
-        
-#        - name: Install Salesforce command line interface
-#          run: |
-#            wget https://developer.salesforce.com/media/salesforce-cli/sfdx-linux-amd64.tar.xz
-#            mkdir sfdx-cli
-#            tar xJf sfdx-linux-amd64.tar.gz -C sfdx-cli --strip-components 1
-#            ./sfdx-cli/install
-          
-#       - name: Authenticate token with main org
-#         run: sfdx force:auth:jwt:grant --clientid "3MVG9uudbyLbNPZOmSIknJGkXU3jB2EpUsRCx1AlAk6OkVgfSg8VG.asx_QWveV6iujTirl15DpvWT2gAOdvK" --jwtkeyfile "$env:SERVER_KEY_CREDENTIALS_ID" --username "jason.odegaard@gmail.com" --instanceurl "https://login.salesforce.com"
+          run: sfdx force:auth:jwt:grant --clientid "3MVG9uudbyLbNPZOmSIknJGkXU3jB2EpUsRCx1AlAk6OkVgfSg8VG.asx_QWveV6iujTirl15DpvWT2gAOdvK" --jwtkeyfile "$env:SUPER_SECRET" --username "jason.odegaard@gmail.com" --instanceurl "https://login.salesforce.com"
 
-#       - name: List orgs
-#         run: sfdx force:org:list
+       - name: List orgs
+         run: sfdx force:org:list
 
-#        - name: Logout just to be safe
-#          run: sfdx force:auth:logout -p -u jason.odegaard@gmail.com
+        - name: Logout just to be safe
+          run: sfdx force:auth:logout -p -u jason.odegaard@gmail.com
 ####### The end?
