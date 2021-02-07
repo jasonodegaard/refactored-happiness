@@ -1,5 +1,4 @@
 name: 'sfdx'
-#just a comment
 
 on: [push]
 
