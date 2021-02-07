@@ -26,6 +26,8 @@ jobs:
           run: | 
             ls -la
             md5sum secret.txt
+            echo "catting next"
+            cat secret.txt
 
         - name: Install Salesforce command line interface
           run: |
