@@ -17,9 +17,9 @@ jobs:
           continue-on-error: true
           run: echo "Jason Odegaard test"
           
-#        - name: Write the token into a file
-#          env: 
-#            SUPER_SECRET: ${{ secrets.SERVER_KEY_CREDENTIALS_ID }}
+        - name: Write the token into a file
+          env: 
+            SUPER_SECRET: ${{ secrets.SERVER_KEY_CREDENTIALS_ID }}
         
 #        - name: Install Salesforce command line interface
 #          run: |
