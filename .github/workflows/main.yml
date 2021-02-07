@@ -21,7 +21,11 @@ jobs:
             ./sfdx-cli/install
           
           - name: Authenticate token with main org
-           run: sfdx force:auth:jwt:grant --clientid 3MVG9uudbyLbNPZOmSIknJGkXU3jB2EpUsRCx1AlAk6OkVgfSg8VG.asx_QWveV6iujTirl15DpvWT2gAOdvK --jwtkeyfile "$env:SERVER_KEY_CREDENTIALS_ID" --username jason.odegaard@gmail.com --instanceurl https://login.salesforce.com
+           run: sfdx force:auth:jwt:grant \
+              --clientid "3MVG9uudbyLbNPZOmSIknJGkXU3jB2EpUsRCx1AlAk6OkVgfSg8VG.asx_QWveV6iujTirl15DpvWT2gAOdvK" \
+              --jwtkeyfile "$env:SERVER_KEY_CREDENTIALS_ID" \
+              --username "jason.odegaard@gmail.com" \
+              --instanceurl "https://login.salesforce.com"
 
           - name: List orgs
             run: sfdx force:org:list
