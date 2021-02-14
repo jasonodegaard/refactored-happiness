@@ -18,16 +18,14 @@ jobs:
           run: echo "Jason Odegaard test"
           
         - name: Write the secret JWT key into a file
-          run: 'echo $SUPER_SECRET > secret.txt'
+          run: 'echo $SUPER_SECRET > secret.key'
           env: 
             SUPER_SECRET: ${{ secrets.SERVER_KEY_CREDENTIALS_ID }}
 
         - name: list files and run hash
           run: | 
             ls -la
-            md5sum secret.txt
-            echo "catting next"
-            cat secret.txt
+            md5sum secret.key
 
         - name: Install Salesforce command line interface
           run: |
@@ -39,7 +37,7 @@ jobs:
         - name: Authenticate token with main org
           env: 
             SUPER_SECRET: ${{ secrets.SERVER_KEY_CREDENTIALS_ID }}
-          run: sfdx auth:jwt:grant --clientid "3MVG9uudbyLbNPZOmSIknJGkXU3jB2EpUsRCx1AlAk6OkVgfSg8VG.asx_QWveV6iujTirl15DpvWT2gAOdvK" --jwtkeyfile "secret.txt" --username "jason.odegaard@gmail.com" --instanceurl "https://login.salesforce.com"
+          run: sfdx auth:jwt:grant --clientid "3MVG9uudbyLbNPZOmSIknJGkXU3jB2EpUsRCx1AlAk6OkVgfSg8VG.asx_QWveV6iujTirl15DpvWT2gAOdvK" --jwtkeyfile "secret.key" --username "jason.odegaard@gmail.com" --instanceurl "https://login.salesforce.com"
 
         - name: List orgs
           run: sfdx force:org:list
