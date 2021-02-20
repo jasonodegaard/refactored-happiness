@@ -12,20 +12,11 @@ jobs:
       
       steps:
         - uses: actions/checkout@v2
-        - name: Echo a value
-          id: echo_steppy
-          continue-on-error: true
-          run: echo "Jason Odegaard test"
-          
+        
         - name: Write the secret JWT key into a file
           run: echo "$SUPER_SECRET" > secret.key
           env: 
             SUPER_SECRET: ${{ secrets.SERVER_KEY_CREDENTIALS_ID }}
-
-        - name: list files and run hash
-          run: | 
-            ls -la
-            md5sum secret.key
 
         - name: Install Salesforce command line interface
 #wget https://developer.salesforce.com/media/salesforce-cli/sfdx-linux-amd64.tar.xz
