@@ -31,9 +31,6 @@ jobs:
             SUPER_SECRET: ${{ secrets.SERVER_KEY_CREDENTIALS_ID }}
           run: sfdx auth:jwt:grant --clientid "3MVG9uudbyLbNPZOmSIknJGkXU3jB2EpUsRCx1AlAk6OkVgfSg8VG.asx_QWveV6iujTirl15DpvWT2gAOdvK" --jwtkeyfile "secret.key" --username "jason.odegaard@gmail.com" --instanceurl "https://login.salesforce.com"
 
-        - name: List orgs
-          run: sfdx force:org:list
-
-        - name: Logout just to be safe
+        - name: Logout
           run: sfdx force:auth:logout -p -u jason.odegaard@gmail.com
 ####### The end?
