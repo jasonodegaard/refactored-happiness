@@ -18,7 +18,7 @@ jobs:
           run: echo "Jason Odegaard test"
           
         - name: Write the secret JWT key into a file
-          run: 'echo $SUPER_SECRET > secret.key'
+          run: echo "$SUPER_SECRET" > secret.key
           env: 
             SUPER_SECRET: ${{ secrets.SERVER_KEY_CREDENTIALS_ID }}
 
