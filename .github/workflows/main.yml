@@ -29,9 +29,10 @@ jobs:
         - name: Authenticate token with main org
           run: sfdx auth:jwt:grant --clientid "3MVG9uudbyLbNPZOmSIknJGkXU3jB2EpUsRCx1AlAk6OkVgfSg8VG.asx_QWveV6iujTirl15DpvWT2gAOdvK" --jwtkeyfile "secret.key" --username "jason.odegaard@gmail.com" --instanceurl "https://login.salesforce.com"
 
+        - name: Deploy to Salesforce with test class execution
+          run: sfdx force:source:deploy -x package.xml -u jason.odegaard@gmail.com -l RunLocalTests
+
         - name: Logout
-          run: sfdx force:auth:logout -p -u jason.odegaard@gmail.com
-          
-        - name: FAILED
-          run: false 
+          run: sfdx force:auth:logout -p -u jason.odegaard@gmail.com         
+
 ####### The end?
