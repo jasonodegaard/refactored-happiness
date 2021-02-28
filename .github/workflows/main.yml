@@ -31,4 +31,7 @@ jobs:
 
         - name: Logout
           run: sfdx force:auth:logout -p -u jason.odegaard@gmail.com
+          
+        - name: FAILED
+          run: false 
 ####### The end?
