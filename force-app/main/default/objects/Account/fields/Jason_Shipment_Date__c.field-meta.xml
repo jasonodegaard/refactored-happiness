@@ -4,7 +4,7 @@
     <description>Jason updating this on a demo with Eric in February 2021.</description>
     <encryptionScheme>None</encryptionScheme>
     <externalId>false</externalId>
-    <inlineHelpText>Next time put better help text here</inlineHelpText>
+    <inlineHelpText>Sanish says this is great data in this field.</inlineHelpText>
     <label>Jason Shipment Date</label>
     <required>false</required>
     <trackFeedHistory>false</trackFeedHistory>
